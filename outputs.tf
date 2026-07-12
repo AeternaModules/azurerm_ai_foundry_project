@@ -1,3 +1,7 @@
+output "ai_foundry_projects_id" {
+  description = "Map of id values across all ai_foundry_projects, keyed the same as var.ai_foundry_projects"
+  value       = { for k, v in azurerm_ai_foundry_project.ai_foundry_projects : k => v.id }
+}
 output "ai_foundry_projects_ai_services_hub_id" {
   description = "Map of ai_services_hub_id values across all ai_foundry_projects, keyed the same as var.ai_foundry_projects"
   value       = { for k, v in azurerm_ai_foundry_project.ai_foundry_projects : k => v.ai_services_hub_id }
