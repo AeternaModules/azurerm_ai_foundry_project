@@ -20,7 +20,7 @@ output "ai_foundry_projects_high_business_impact_enabled" {
 }
 output "ai_foundry_projects_identity" {
   description = "Map of identity values across all ai_foundry_projects, keyed the same as var.ai_foundry_projects"
-  value       = { for k, v in azurerm_ai_foundry_project.ai_foundry_projects : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_ai_foundry_project.ai_foundry_projects : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "ai_foundry_projects_location" {
   description = "Map of location values across all ai_foundry_projects, keyed the same as var.ai_foundry_projects"
